@@ -1,0 +1,28 @@
+{
+  "name": "index-2022",
+  "version": "1.0.0",
+  "description": "Independent Space Index 2022",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env ELEVENTY_ENV=dev npx @11ty/eleventy --serve --quiet & mix watch",
+    "fresh": "rm -rf docs",
+    "build": "mix && cross-env ELEVENTY_ENV=prod npx @11ty/eleventy",
+    "seed": "cross-env ELEVENTY_ENV=seed eleventy"
+  },
+  "author": "bruno mokross",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^1.0.0",
+    "@mightyplow/eleventy-plugin-cache-buster": "^1.1.3",
+    "cross-env": "^7.0.3",
+    "laravel-mix": "^6.0.19",
+    "sass": "^1.34.1",
+    "sass-loader": "^12.6.0"
+  },
+  "dependencies": {
+    "leaflet": "^1.7.1",
+    "leaflet-active-area": "^1.1.1",
+    "line-awesome": "^1.3.0",
+    "swup": "^2.0.14"
+  }
+}

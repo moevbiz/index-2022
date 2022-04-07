@@ -1,0 +1,119 @@
+.leaflet-control-attribution {
+    font-size: 9px!important;
+    a {
+        color: inherit;
+        border-bottom: 1px dotted;
+    }
+}
+
+#map {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgb(247,196,195);
+}
+
+.marker-icon {
+    background: red;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    touch-action: manipulation;
+
+    span {
+        font-size: 1rem;
+        position: absolute;
+        z-index: 10000;
+        left: 25px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: none;
+        white-space: pre;
+        pointer-events: none;
+    }
+
+    &:hover {
+        z-index: 4000!important;
+        span {
+            display: block;
+        }
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        box-sizing: border-box;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        // background: red;
+    }
+
+    &-selected {
+        background: black;
+        z-index: 5000!important;
+        &::after {
+            background: transparent;
+            border: 2px solid black;
+            animation: selectIcon .3s linear;
+        }
+        span {
+            display: block;
+            z-index: 100000;
+        }
+    }
+
+    &.is-clicked-once {
+        z-index: 3000!important;
+        &::after {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Line Awesome Free';
+            font-weight: 900;
+            content: '\f067';
+            font-size: 2rem;
+            color: white;
+            background: black;
+            width: 2.5rem;
+            height: 2.5rem;
+            transform: translate(-0.625rem, -0.625rem);
+        }
+        span {
+            display: block;
+            left: 35px;
+            z-index: 100000;
+        }
+    }
+}
+
+@keyframes selectIcon {
+    0% {
+        transform: scale(4);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.activeArea { 
+    // border: 1px solid green;
+    pointer-events: none;
+    position: fixed;
+    z-index: 10000; 
+    top: 0; 
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    
+    @media (min-width: $mob) {
+        [data-use-active-area="true"] & {
+            left: 40vw;  
+            width: 60vw;
+        }
+    }
+}

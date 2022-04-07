@@ -1,0 +1,59 @@
+---
+
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    {# <nav>
+        <ul>
+            <a href="/" class="menu-link" data-view="/">
+                <li>
+                    <div class="button">
+                        <i class="la la-map"></i>
+                    </div>
+                    <span>Map</span>
+                </li>
+            </a>
+            <a href="/list/" class="menu-link" data-view="/list/">
+                <li>
+                    <div class="button">
+                        <i class="la la-list"></i>
+                    </div>
+                    <span>List</span>
+                </li>
+            </a>
+            <a href="/info/" class="menu-link" data-view="/info/">
+                <li>
+                    <div class="button">
+                        <i class="la la-info"></i>
+                    </div>
+                    <span>Info</span>
+                </li>
+            </a>
+        </ul>
+    </nav> #}
+    <div id="logo">
+        <figure>
+            <img src="/assets/images/sq_1_transparent.png" alt="Independent Space Index 2022" srcset="">
+        </figure>
+    </div>
+    <div id="info">
+        Instagram: <a href="https://instagram.com/independentspaceindex">@independentspaceindex</a> –
+        <a href="http://eepurl.com/gy2xV1">Subscribe to newsletter</a> –
+        <a href="assets/documents/independentspaceindex.ics">Export calendar event (.ics)</a> –
+        <a href="https://independentspaceindex.at/about">More info</a>
+    </div>
+    {# <div id="map"></div> #}
+    <main id="swup" class="transition-slide" data-slug="{{ page.fileSlug }}">
+        {{ content | safe }}
+    </main>
+</body>
+<script src="/assets/js/scripts.js"></script>
+</html>
