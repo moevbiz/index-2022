@@ -1,100 +1,445 @@
-const axios  = require('axios');
-const fs = require("fs");
-require('dotenv').config();
-
-// Handy to save the results to a local file
-// to prime the dev data source
-const seed = (data, path) => {
-  if(['seed'].includes(process.env.ELEVENTY_ENV)) {
-    fs.writeFile(path, data, err => {
-      if(err) {
-        console.log(err);
-      } else {
-        console.log(`Data saved for dev: ${path}`);
+[
+  {
+      "spaceName": "ada",
+      "spaceID": "ada",
+      "eventTitle": "OTK Files",
+      "eventDetails": "OTK Files – Vienna Street Art Projects – versammelt Roland Maurmairs\nkünstlerische Interventionen und Projekte im öffentlichen Raum der\nletzten Jahre, größtenteils in und um Ottakring realisiert, dem 16.\nWiener Stadtbezirk, wo sich Atelier und Wohnsitz des Künstlers befanden.",
+      "eventWebsite": "https://artisticdynamicassociation.eu/2021/06/20/ada-is-index2021/",
+      "spaceData": {
+          "spaceId": "spaces/ada",
+          "uid": "ada",
+          "name": "ada",
+          "district": 16,
+          "address": "Wattgasse 16/6",
+          "website": "http://artisticdynamicassociation.eu/",
+          "prettyurl": "artisticdynamicassociation.eu",
+          "inactive": false,
+          "lat": 48.2130799,
+          "lng": 16.3169945
       }
-    });
+  },
+  {
+      "spaceName": "THE CLUB CLUB",
+      "spaceID": "the-club-club",
+      "eventTitle": "INTÉRIEUR – A Tribute To Erwin Hauer",
+      "eventDetails": "Erwin Hauer, Ulrike Johannsen, Sophia Latysheva, Stefan Lux, Heti Prack, Almut Reichenbach, Peter Sandbichler, Fabian Seiz, Esther Stocker, Barbara Sturm, Nazim Ünal Yilmaz, Alexandra Sascha Zaitseva",
+      "eventWebsite": "https://www.clubclub.wien/INTERIEUR.html",
+      "spaceData": {
+          "spaceId": "spaces/the-club-club",
+          "uid": "the-club-club",
+          "name": "THE CLUB CLUB",
+          "district": 15,
+          "address": "Alliogasse 1",
+          "website": "https://www.clubclub.wien/",
+          "prettyurl": "clubclub.wien",
+          "inactive": false,
+          "lat": 48.20064,
+          "lng": 16.32833
+      }
+  },
+  {
+      "spaceName": "flat1",
+      "spaceID": "flat1",
+      "eventTitle": "Why Paint",
+      "eventDetails": "Julia Brennacher & Janine Weger",
+      "eventWebsite": "",
+      "spaceData": {
+          "spaceId": "spaces/flat1",
+          "uid": "flat1",
+          "name": "flat1",
+          "district": 3,
+          "address": "Radetzkystrasse 4",
+          "website": "https://www.flat1.at/",
+          "prettyurl": "flat1.at",
+          "inactive": false,
+          "lat": 48.21097,
+          "lng": 16.38801
+      }
+  },
+  {
+      "spaceName": "GOMO",
+      "spaceID": "gomo",
+      "eventTitle": "The Desert Has Three Layers, Two of Fruit and One of Cream",
+      "eventDetails": "Carolin Israel und Lukas Hochrieder",
+      "eventWebsite": "",
+      "spaceData": {
+          "spaceId": "spaces/gomo",
+          "uid": "gomo",
+          "name": "GOMO",
+          "district": 2,
+          "address": "Volkertplatz 8",
+          "website": "http://www.gomoartspace.com/",
+          "prettyurl": "gomoartspace.com",
+          "inactive": false,
+          "lat": 48.22289,
+          "lng": 16.3874
+      }
+  },
+  {
+      "spaceName": "Guimarães",
+      "spaceID": "guimaraes",
+      "eventTitle": "João Jr.",
+      "eventDetails": "Gijs Milius, Sophie Nys",
+      "eventWebsite": "",
+      "spaceData": {
+          "spaceId": "spaces/guimaraes",
+          "uid": "guimaraes",
+          "name": "Guimarães",
+          "district": 6,
+          "address": "Linke Wienzeile 36 / 1c",
+          "website": "http://www.guimaraes.info/",
+          "prettyurl": "guimaraes.info",
+          "inactive": false,
+          "lat": 48.19772,
+          "lng": 16.36032
+      }
+  },
+  {
+      "spaceName": "hoast",
+      "spaceID": "hoast",
+      "eventTitle": "Past the Time Between",
+      "eventDetails": "Katrin Plavčak, Daniel Massow and Charlotte Mumm",
+      "eventWebsite": "https://www.glazprom.org/hoast/19-june-04-july-2021-past-the-time-between/",
+      "spaceData": {
+          "spaceId": "spaces/hoast",
+          "uid": "hoast",
+          "name": "hoast",
+          "district": 2,
+          "address": "Große Sperlgasse 25",
+          "website": "http://www.hoast.net/",
+          "prettyurl": "hoast.net",
+          "inactive": false,
+          "lat": 48.217783,
+          "lng": 16.378136
+      }
+  },
+  {
+      "spaceName": "In der Kubatur des Kabinetts, Kunstsalon im Fluc",
+      "spaceID": "fluc",
+      "eventTitle": "What's the time?",
+      "eventDetails": "Guadalupe Aldrete, Maria Hanl, Friederike Mayröcker, Edith Payer, Judith Nika Pfeifer",
+      "eventWebsite": "",
+      "altLat": "48.217760",
+      "altLng": "16.393210",
+      "altWebsite": "https://www.fluc.at/",
+      "altAddress": "Praterstern 5, 1020 Vienna"
+  },
+  {
+      "spaceName": "Kevin Space",
+      "spaceID": "kevin-space",
+      "eventTitle": "High Horse",
+      "eventDetails": "Angharad Williams",
+      "eventWebsite": "http://www.kevinspace.org/exhibitions/highhorse",
+      "spaceData": {
+          "spaceId": "spaces/kevin-space",
+          "uid": "kevin-space",
+          "name": "Kevin Space",
+          "district": 2,
+          "address": "Volkertplatz 14",
+          "website": "http://kevinspace.org",
+          "prettyurl": "kevinspace.org",
+          "inactive": false,
+          "lat": 48.22256,
+          "lng": 16.38591
+      }
+  },
+  {
+      "spaceName": "Kulturdrogerie",
+      "spaceID": "kulturdrogerie",
+      "eventTitle": "dicht, undicht. PAYER GABRIEL",
+      "eventDetails": "",
+      "eventWebsite": "",
+      "spaceData": {
+          "spaceId": "spaces/kulturdrogerie",
+          "uid": "kulturdrogerie",
+          "name": "Kulturdrogerie",
+          "district": 18,
+          "address": "Gentzgasse 86-88",
+          "website": "http://www.kulturdrogerie.org",
+          "prettyurl": "kulturdrogerie.org",
+          "inactive": false,
+          "lat": 48.228187,
+          "lng": 16.337869
+      }
+  },
+  {
+      "spaceName": "Kunstraum am Schauplatz",
+      "spaceID": "kunstraum-am-schauplatz",
+      "eventTitle": "Niemand blickt auf sein Leben zurück und erinnert sich an die Nächte, in denen er geschlafen habe",
+      "eventDetails": "Ein Projekt von Fondation Coco Lafayette – Serge Ecker (LUX), Manuel Gorkiewicz (AT), Markus Jagersberger (AT), Catherine Lorent (LUX), Stefan Lugbauer (AT), Corinne L. Rusch (CH/AT), Una Szeemann (CH), VOLCAN MOREAU (AT/ESP)",
+      "eventWebsite": "https://k-r-a-s.com/Niemand-blickt-auf-sein-Leben-zuruck-und-erinnert-sich-an-die-Nachte",
+      "spaceData": {
+          "spaceId": "spaces/kunstraum-am-schauplatz",
+          "uid": "kunstraum-am-schauplatz",
+          "name": "Kunstraum am Schauplatz",
+          "district": 2,
+          "address": "Praterstrasse 42, 2. Innenhof",
+          "website": "http://www.k-r-a-s.com/",
+          "prettyurl": "k-r-a-s.com",
+          "inactive": false,
+          "lat": 48.21488,
+          "lng": 16.38595
+      }
+  },
+  {
+      "spaceName": "Laurenz",
+      "spaceID": "laurenz",
+      "eventTitle": "Živa Drvarič and Martin Schlögl",
+      "eventDetails": "",
+      "eventWebsite": "",
+      "spaceData": {
+          "spaceId": "spaces/laurenz",
+          "uid": "laurenz",
+          "name": "Laurenz",
+          "district": 15,
+          "address": "Löhrgasse 9",
+          "website": "https://www.laurenz-space.com",
+          "prettyurl": "laurenz-space.com",
+          "inactive": false,
+          "lat": 48.198839,
+          "lng": 16.336867
+      }
+  },
+  {
+      "spaceName": "LLLLLL",
+      "spaceID": "llllll",
+      "eventTitle": "JAMAIS VU II",
+      "eventDetails": "Maximiliane Leni Armann, Sarah Pedde, Darja Shatalova, curated by Liudmila Kirsanova 📅 Saturday @ 6pm: Presentation of the artist zine APOCALYPSE #2 by Sarah Pedde 📅 Saturday & Sunday @ 3 – 7pm: Tattoo performance by Natasha Tarr",
+      "eventWebsite": "http://www.llllll.at/",
+      "spaceData": {
+          "spaceId": "spaces/llllll",
+          "uid": "llllll",
+          "name": "LLLLLL",
+          "district": 3,
+          "address": "Seidlgasse 14",
+          "website": "http://www.LLLLLL.at",
+          "prettyurl": "LLLLLL.at",
+          "inactive": false,
+          "lat": 48.207184,
+          "lng": 16.39016
+      }
+  },
+  {
+      "spaceName": "MOTHERBOARD",
+      "spaceID": "motherboard",
+      "eventTitle": "LEBHAFTE MATERIE",
+      "eventDetails": "Julia Belova, Malin Bülow, Vera Klimentyeva, Laura Pöld, Sarah Sternat, Sophia Süssmilch, Stephanie Winter",
+      "eventWebsite": "",
+      "spaceData": {
+          "spaceId": "spaces/motherboard",
+          "uid": "motherboard",
+          "name": "MOTHERBOARD",
+          "district": 2,
+          "address": "Castellezgasse 36-38",
+          "website": "https://www.instagram.com/motherboard2.0/",
+          "prettyurl": "@motherboard2.0",
+          "inactive": false,
+          "lat": 48.223721,
+          "lng": 16.381981
+      }
+  },
+  {
+      "spaceName": "Mz*Baltazar's Laboratory",
+      "spaceID": "mz-baltazars-lab",
+      "eventTitle": "the space between our toes",
+      "eventDetails": "Rosie Benn & Shobha Untersteiner – Schiefe Workshops:\n📅  Saturday @ 3-5pm and/or\n📅 Sunday @ 3-5pm",
+      "eventWebsite": "",
+      "spaceData": {
+          "spaceId": "spaces/mz-baltazars-lab",
+          "uid": "mz-baltazars-lab",
+          "name": "Mz*Baltazar's Laboratory",
+          "district": 20,
+          "address": "Jägerstraße 52-54",
+          "website": "http://www.mzbaltazarslaboratory.org/",
+          "prettyurl": "mzbaltazarslaboratory.org",
+          "inactive": false,
+          "lat": 48.2334298,
+          "lng": 16.36982
+      }
+  },
+  {
+      "spaceName": "New Jörg",
+      "spaceID": "new-joerg",
+      "eventTitle": "SALON DAGOBERT",
+      "eventDetails": "Heti Prack",
+      "eventWebsite": "https://newjoerg.at/exhibitions/heti-salon-dagobert",
+      "spaceData": {
+          "spaceId": "spaces/new-joerg",
+          "uid": "new-joerg",
+          "name": "New Jörg",
+          "district": 20,
+          "address": "Jägerstraße 56",
+          "website": "http://www.newjoerg.at/",
+          "prettyurl": "newjoerg.at",
+          "inactive": false,
+          "lat": 48.234304,
+          "lng": 16.370395
+      }
+  },
+  {
+      "spaceName": "philomena+",
+      "spaceID": "philomena",
+      "eventTitle": "Banal Complexities تعقيدات  عادية⁩",
+      "eventDetails": "Interaktive Performance “dialogs on donuts” von Margareta Klose – “Big Little Stories” von Oscar Cueto 📅 Saturday @ 2pm, 3pm, 4pm: Performance “Diaries from a Locked Flat” von Nourhan Maayouf",
+      "eventWebsite": "https://philomena.plus/programme/banal-complexities/",
+      "spaceData": {
+          "spaceId": "spaces/philomena",
+          "uid": "philomena",
+          "name": "philomena+",
+          "district": 2,
+          "address": "Heinestraße 40/7",
+          "website": "http://philomena.plus/",
+          "prettyurl": "philomena.plus",
+          "inactive": false,
+          "lat": 48.218234,
+          "lng": 16.389489
+      }
+  },
+  {
+      "spaceName": "philomena+ Off-Site",
+      "spaceID": "philomena-off",
+      "eventTitle": "Intimate Body Machine",
+      "eventDetails": "Lisa Großkopf und Soukaina Joual – Praterstern, U-Bahn-Ausgang “Heinestraße” und Billboard am fluc, Praterstern 5, 1020 Wien",
+      "eventWebsite": "https://philomena.plus/programme/banal-complexities/",
+      "altLat": "48.217760",
+      "altLng": "16.393210",
+      "altWebsite": "https://philomena.plus/",
+      "altAddress": "Praterstern"
+  },
+  {
+      "spaceName": "Pina",
+      "spaceID": "pina",
+      "eventTitle": "But I doubt, I tremble, I see (shaking edges) and the wild thorn tree",
+      "eventDetails": "Giuliana Rosso & Rory Pilgrim, curated by Caterina Avataneo",
+      "eventWebsite": "https://pinavienna.eu/exhibitions/but-i-doubt-i-tremble-i-see-shaking-edges-and-the-wild-thorn-tree",
+      "spaceData": {
+          "spaceId": "spaces/pina",
+          "uid": "pina",
+          "name": "Pina",
+          "district": 4,
+          "address": "Große Neugasse 44",
+          "website": "https://pinavienna.eu",
+          "prettyurl": "pinavienna.eu",
+          "inactive": false,
+          "lat": 48.194289,
+          "lng": 16.36292
+      }
+  },
+  {
+      "spaceName": "school",
+      "spaceID": "school",
+      "eventTitle": "EVENT: Performative Screenings #70 – ANTIDOT",
+      "eventDetails": "📅 Saturday @ 7pm: an audio book performed live by Nils Amadeus Lange and Rafal Skoczek – Saturday, July 3rd, 2021 – school opens 7 pm, Performance 8 pm",
+      "eventWebsite": "http://weloveschool.org/performative-screenings/70",
+      "spaceData": {
+          "spaceId": "spaces/school",
+          "uid": "school",
+          "name": "school",
+          "district": 5,
+          "address": "Grüngasse 22",
+          "website": "https://weloveschool.org",
+          "prettyurl": "weloveschool.org",
+          "inactive": false,
+          "lat": 48.194305,
+          "lng": 16.356382
+      }
+  },
+  {
+      "spaceName": "Size Matters",
+      "spaceID": "size-matters",
+      "eventTitle": "SIZE MATTERS GOES PRIVATE",
+      "eventDetails": "Judith Augustinovic+Nayari Castillo-Rutz, Adnan Balčinović, Thomas Geiger, Ursula Hübner, Michael Klein+Sasha Pirker, Almut Reichenbach, Viktoria Schmid, Wiener Times, Gerlind Zeilner",
+      "eventWebsite": "",
+      "spaceData": {
+          "spaceId": "spaces/size-matters",
+          "uid": "size-matters",
+          "name": "Size Matters",
+          "district": 5,
+          "address": "Margaretenstraße 110",
+          "website": "http://www.sizematters.club/",
+          "prettyurl": "sizematters.club",
+          "inactive": false,
+          "lat": 48.189042,
+          "lng": 16.354464
+      }
+  },
+  {
+      "spaceName": "VAN",
+      "spaceID": "van",
+      "eventTitle": "Mario Kiesenhofer @ VAN Artspace",
+      "eventDetails": "as part of his exhibition at Bildraum 01, Mario Kiesenhofer shows a site-specific work at VAN Art Space, which will be parked next to Bildraum 01. VAN Art Space and Bildraum 01 will be open. VAN is an artist-run space in the back of Sophia Hatwagner’s car.",
+      "eventWebsite": "",
+      "spaceData": {
+          "spaceId": "spaces/van",
+          "uid": "van",
+          "name": "VAN",
+          "district": 0,
+          "address": "",
+          "website": "https://www.instagram.com/van.artspace/",
+          "prettyurl": "@van.artspace",
+          "inactive": false,
+          "lat": 0,
+          "lng": 0
+      },
+      "altLat": "48.210850",
+      "altLng": "16.365030",
+      "altAddress": "Strauchgasse 4, 1010 Vienna"
+  },
+  {
+      "spaceName": "VBKÖ",
+      "spaceID": "vbkoe",
+      "eventTitle": "The short video program & the VBKÖ Archive",
+      "eventDetails": "With short video works by Veronika Burger, Louise Deininger with Sabria Lagoun and Sarah Hauber, Fanni Futterknecht, Lisa Großkopf, INVASORIX, Anna Kinbom, Stephanie Misa with James Clar and Multiple Spirits, Susana Ojeda, Berenice Pahl, Deniz Sözen, Christina Werner, Hui Ye, and Daniela Zahlner 📅 Saturday @ 11am: a short guided tour",
+      "eventWebsite": "",
+      "spaceData": {
+          "spaceId": "spaces/vbkoe",
+          "uid": "vbkoe",
+          "name": "VBKÖ",
+          "district": 1,
+          "address": "Maysedergasse 2",
+          "website": "http://www.vbkoe.org/",
+          "prettyurl": "vbkoe.org",
+          "inactive": false,
+          "lat": 48.20434,
+          "lng": 16.370116
+      }
+  },
+  {
+      "spaceName": "WAF Galerie",
+      "spaceID": "waf-galerie",
+      "eventTitle": "donkey balancing on a tennis ball",
+      "eventDetails": "Christian Rothwangl",
+      "eventWebsite": "",
+      "spaceData": {
+          "spaceId": "spaces/waf-galerie",
+          "uid": "waf-galerie",
+          "name": "WAF Galerie",
+          "district": 6,
+          "address": "Schadekgasse 6-8",
+          "website": "https://wafgalerie.com",
+          "prettyurl": "wafgalerie.com",
+          "inactive": false,
+          "lat": 48.19813,
+          "lng": 16.35333
+      }
+  },
+  {
+      "spaceName": "White Dwarf Projects",
+      "spaceID": "white-dwarf-projects",
+      "eventTitle": "WDM#18 ZWILLING",
+      "eventDetails": "with Niclas Schöler",
+      "eventWebsite": "",
+      "spaceData": {
+          "spaceId": "spaces/white-dwarf-projects",
+          "uid": "white-dwarf-projects",
+          "name": "White Dwarf Projects",
+          "district": 3,
+          "address": "Seidlgasse 14",
+          "website": "http://www.whitedwarfmagazine.eu/",
+          "prettyurl": "whitedwarfmagazine.eu",
+          "inactive": false,
+          "lat": 48.207184,
+          "lng": 16.39018
+      }
   }
-}
-
-const sheetID = process.env.GOOGLE_SHEET_ID;
-const googleSheetUrl = `https://spreadsheets.google.com/feeds/list/${sheetID}/1/public/values?alt=json`;
-const indexAPI = 'https://independentspaceindex.at/spaces.json';
-
-function getIndex() {
-  return axios.get(indexAPI);
-}
-
-function getParticipants() {
-  return axios.get(googleSheetUrl);
-}
-
-function readFromSheet(sheet, index, value) {
-  let val = sheet.data.feed.entry[index]['gsx$' + value];
-  return val ? val.$t : '';
-}
-
-function readEntry(entry, value) {
-  let val = entry['gsx$' + value];
-  return val ? val.$t : '';
-}
-
-module.exports = () => {
-  return new Promise((resolve, reject) => {
-
-    Promise.all([getIndex(), getParticipants()])
-      .then(([index, googleSheet]) => {
-        var data = {
-          entries: [],
-        };
-
-        let participants = googleSheet.data.feed.entry;
-
-        participants.forEach((participant, i) => {
-          if (readEntry(participant, 'public') !== 'TRUE') return;
-
-          let spaceData = index.data.find(space => space.uid === readEntry(participant, 'spaceid'));
-
-          let entry = {
-            spaceName: spaceData ? spaceData.name : readEntry(participant, 'spacename'),
-            spaceID: spaceData ? spaceData.uid : readEntry(participant, 'spaceid'),
-            eventTitle: readEntry(participant, 'eventtitle'),
-            eventDetails: readEntry(participant, 'eventdetails'),
-            eventWebsite: readEntry(participant, 'eventwebsite'),
-            // altLat: readEntry(participant, 'eventlat'),
-            // altLng: readEntry(participant, 'eventlng'),
-            spaceData,
-          }
-
-          if (readEntry(participant, 'altlat')) {
-            entry.altLat = readEntry(participant, 'altlat');
-          };
-          if (readEntry(participant, 'altlng')) {
-            entry.altLng = readEntry(participant, 'altlng');
-          }
-          if (readEntry(participant, 'altwebsite')) {
-            entry.altWebsite = readEntry(participant, 'altwebsite');
-          };
-          if (readEntry(participant, 'altaddress')) {
-            entry.altAddress = readEntry(participant, 'altaddress');
-          }
-          // console.log(!readEntry(participant, 'altlat'));
-          // console.log(!!readEntry(participant, 'altlat'));
-          
-          data.entries.push(entry);
-        });
-        
-        // stash the data locally for developing without
-        // needing to hit the API each time.
-        seed(JSON.stringify(data.entries, null, 4), `${__dirname}/../dev/spaces.json`);
-
-        // resolve the promise and return the data
-        resolve(data.entries);
-      })
-
-      // handle errors
-      .catch(error => {
-        console.log('Error :', error);
-        reject(error);
-      });
-  })
-}
+]
