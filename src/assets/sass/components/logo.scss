@@ -26,6 +26,8 @@
     pointer-events: none;
     padding-bottom: 2.5rem;
 
+    filter: drop-shadow(1vw 2vw 5vw red);
+
     transition: opacity .1s linear;
 
     &.is-hidden {

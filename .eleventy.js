@@ -4,6 +4,28 @@ module.exports = function(config) {
 
     config.addLayoutAlias('default', 'layouts/base.njk');
 
+    config.addCollection("locations", function(collection) {
+        return collection.getFilteredByGlob("./src/locations/*.md").sort((a,b) => {
+            if (a.data.slug > b.data.slug) return -1;
+            else if (a.data.slug < b.data.slug) return 1;
+            else return 0;
+        }).reverse();
+    });
+
+    config.addCollection('program', function(collection) {
+        return collection.getFilteredByGlob("./src/program/*.md");
+    })
+
+    config.addCollection('events', function(collection) {
+        return collection.getFilteredByGlob("./src/program/*.md").filter(item => item.data.type == 'event');
+    })
+
+    config.addFilter('filterByLocation', function(collection, location) {
+        if (!location) return collection;
+        const filtered = collection.filter(item => item.data.location == location)
+        return filtered;
+    });
+
     config.addShortcode('la', function(iconName) {
         return `<i class="la la-${iconName}"></i>`
     });
@@ -34,7 +56,9 @@ module.exports = function(config) {
     }
     
     // make the seed target act like prod
-    env = (env=="seed") ? "prod" : env;
+    // env = (env=="seed") ? "prod" : env;
+    
+    js = config.javascriptFunctions;
 
     // Base config
     return {
@@ -42,7 +66,7 @@ module.exports = function(config) {
         dir: {
             input: "src",
             output: "docs",
-            data: `_data/${env}`
+            data: `_data`
         }
     };
 }

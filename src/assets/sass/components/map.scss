@@ -65,6 +65,10 @@
         }
     }
 
+    &.is-hidden {
+        display: none;
+    }
+
     &.is-clicked-once {
         z-index: 3000!important;
         &::after {

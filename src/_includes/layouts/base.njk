@@ -11,49 +11,21 @@
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
-    {# <nav>
-        <ul>
-            <a href="/" class="menu-link" data-view="/">
-                <li>
-                    <div class="button">
-                        <i class="la la-map"></i>
-                    </div>
-                    <span>Map</span>
-                </li>
-            </a>
-            <a href="/list/" class="menu-link" data-view="/list/">
-                <li>
-                    <div class="button">
-                        <i class="la la-list"></i>
-                    </div>
-                    <span>List</span>
-                </li>
-            </a>
-            <a href="/info/" class="menu-link" data-view="/info/">
-                <li>
-                    <div class="button">
-                        <i class="la la-info"></i>
-                    </div>
-                    <span>Info</span>
-                </li>
-            </a>
-        </ul>
-    </nav> #}
+    {% include 'partials/_navigation.njk' %}
+    {% include 'partials/_filters.njk' %}
+
     <div id="logo">
         <figure>
-            <img src="/assets/images/sq_1_transparent.png" alt="Independent Space Index 2022" srcset="">
+            <img src="/assets/images/schriftzug_weiss.png" alt="Independent Space Index 2022" srcset="">
         </figure>
     </div>
-    <div id="info">
-        Instagram: <a href="https://instagram.com/independentspaceindex">@independentspaceindex</a> –
-        <a href="http://eepurl.com/gy2xV1">Subscribe to newsletter</a> –
-        <a href="assets/documents/independentspaceindex.ics">Export calendar event (.ics)</a> –
-        <a href="https://independentspaceindex.at/about">More info</a>
-    </div>
-    {# <div id="map"></div> #}
+
+    <div id="map"></div>
+
     <main id="swup" class="transition-slide" data-slug="{{ page.fileSlug }}">
         {{ content | safe }}
     </main>
+    
 </body>
 <script src="/assets/js/scripts.js"></script>
 </html>

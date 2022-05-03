@@ -1,4 +1,4 @@
-export class Logo {
+export class Logo {
     constructor(qs) {
         this.$el = document.querySelector(qs);
     }

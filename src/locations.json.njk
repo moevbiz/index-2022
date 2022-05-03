@@ -1,0 +1,18 @@
+---
+permalink: /locations.json
+---
+[
+{% for space in collections.locations %}
+  {% set programTypes = [] %}
+  {% for program in collections.program | filterByLocation(space.data.slug) %}
+    {% set programTypes = (programTypes.push(program.data.type), programTypes) %}
+  {% endfor %}
+  {
+    "lat": "{{ space.data.lat or space.data.eleventyComputed.lat }}",
+    "lng": "{{ space.data.lng or space.data.eleventyComputed.lng }}",
+    "uid": "{{ space.data.name | slug }}",
+    "name": "{{ space.data.name }}",
+    "types": "{{ programTypes }}"
+  }{{ '' if loop.last else ',' }}
+{% endfor  %}
+]

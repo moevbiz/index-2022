@@ -3,19 +3,19 @@
   title: "Info • Independent Space Index 2021",
   layout: "default",
 }
-
 ---
 
-# Independent Space Index 2021
-July 3+4, 2021
+# Independent Space Index 2022
+June 24-26, 2022
 12-7pm
 
-On Saturday and Sunday, July 3 and 4, from 12pm until 7pm, Viennese project spaces jointly invite to a city-wide Open House event. All listed spaces have extended their opening hours and you can visit them without an appointment.
+Viennese project spaces jointly invite to a city-wide Open House event. On Saturday and Sunday, June 25 and 26, from 12pm until 7pm, all listed spaces have extended their opening hours and you can visit them without an appointment.
 
-<!-- Spanning exhibitions in **{{ numSpaces }}** spaces in **{{ numDistricts }}** municipal districts,  -->
-Spanning exhibitions in {{ spaces.length }} spaces all over town, the event was conceived as an open assemblage of initiatives aimed at revealing the vibrancy, complexity and diversity of Vienna's independent art scene. Visitors are invited to join the parcours and discover this richness across the city.
+In addition to this open house program, a total of {{ collections.events.length }} special events are hosted on occasion of the festival.
 
-[LIST OF PARTICIPANTS {% la 'arrow-right' %}](/list)  
+Featuring ongoing exhibitions in {{ collections.locations.length }} spaces all over town, the festival was conceived as an open assemblage of initiatives revealing the vibrancy, complexity and diversity of Vienna's independent art scene. Visitors are invited to join the parcours and discover this richness across the city. 
+
+[LIST OF PARTICIPANTS {% la 'arrow-right' %}](/list)
 <span style="font-family: monospace; font-size: 1.5rem">The list of participants will be regularly updated until just before the event. Check back soon.</span>
 
 Independent Space Index is a is a self-organized networking platform and provides a directory of independent spaces for contemporary art in Vienna.
