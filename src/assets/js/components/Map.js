@@ -30,8 +30,10 @@ export class Map {
     addMarkers() {
         this.markerLayerGroup = L.featureGroup();
         this.data.forEach(dat => {
+            if (dat.lat == 'none' || dat.lng == 'none') return;
             let marker = L.marker(new LatLng(dat.lat, dat.lng), {
                 title: dat.uid,
+                types: dat.types,
                 icon: L.divIcon({
                     className: `marker-icon`,
                     html: `<span>${dat.name}</span>`,
@@ -40,11 +42,22 @@ export class Map {
             });
             this.markers.push(marker);
             this.markerLayerGroup.addLayer(marker);
-            // marker.addTo(this.$map);
         });
         this.markerLayerGroup.addTo(this.$map);
         // this.$map.setMaxBounds(this.markerLayerGroup.getBounds())
     }
+
+    filterBy(value) {
+        window.app.unselectSpace();
+
+        this.markers.forEach(m => {
+            if (value == 'all' || m.options.types.split(',').includes(value)) {
+                return m._icon.classList.remove('is-hidden');
+            }
+            m._icon.classList.add('is-hidden');
+        })
+    }
+
     init() {
         this.addMarkers();
     }

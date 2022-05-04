@@ -3,6 +3,7 @@ import { Logo } from './Logo';
 import Swup from 'swup';
 import { scrollToY } from '../tools';
 import { NewsletterForm } from "./NewsletterForm";
+import { FilterButtonGroup } from './FilterButtonGroup';
 import { marker } from 'leaflet';
 
 let swup;
@@ -10,18 +11,20 @@ let swup;
 export class App {
     constructor() {
         this.state = {
-            space: window.location.pathname.includes('/list') ? window.location.hash.substr(1) : '',
+            space: window.location.pathname.includes('/program') ? window.location.hash.substr(1) : '',
             panelOpen: false,
             logoHidden: false,
-            useActiveArea: window.location.pathname.includes('/list'),
+            useActiveArea: window.location.pathname.includes('/program'),
             view: window.location.pathname ? window.location.pathname : 'index',
+            filter: 'all',
         };
-        this.data = '';
         this.$logo = new Logo('#logo');
+        this.$filterButtons = new FilterButtonGroup('nav.filters button');
+        this.data = '';
         this.getData().then(data => this.init(data));
     }
     async getData() {
-        let response = await fetch('/spaces.json');
+        let response = await fetch('/locations.json');
         let data = await response.json();
         return data;
     }
@@ -33,7 +36,7 @@ export class App {
     }
     afterLoad() {
         this.setState({
-            useActiveArea: window.location.pathname.includes('/list'),
+            useActiveArea: window.location.pathname.includes('/program'),
             view: window.location.pathname,
         })
         this.$spaces = document.querySelectorAll('.space');
@@ -44,7 +47,7 @@ export class App {
                 })
             })
         }
-        if (window.location.pathname.includes('/list') && this.state.space) {
+        if (window.location.pathname.includes('/program') && this.state.space) {
             this.selectSpace(this.state.space);
         }
 
@@ -57,23 +60,19 @@ export class App {
         }
 
         this.updateMenu();
-
-        // this.setState({
-            
-        // });
     }
     setView(options) {
         if (options.view == 'space') {
             let st;
             let hash = `#${options.space}`;
-            if (window.location.pathname.includes('/list')) {
+            if (window.location.pathname.includes('/program')) {
                 // window.location.hash = hash;
                 // this.update();
                 // this.selectSpace(options.space);
                 st = {};
             } else {
                 swup.loadPage({
-                    url: `/list/${hash}`, // route of request (defaults to current url)
+                    url: `/program/${hash}`, // route of request (defaults to current url)
                 });
                 st = {useActiveArea: true, space: options.space};
             }
@@ -85,8 +84,6 @@ export class App {
         }
     }
     updateMenu() {
-        console.log(this.state.view);
-        console.log(this.$menuElements);
         this.$menuElements.forEach(el => {
             if (this.state.view == el.dataset.view) {
                 el.classList.add('is-active-element');
@@ -102,7 +99,7 @@ export class App {
         this.$spaces.forEach(s => {
             s.classList.remove('is-selected');
         });
-        history.pushState({}, '', window.location.pathname);
+        history.pushState({}, '', window.location.pathname + window.location.search);
         this.setState({space: ''});
     }
     selectSpace(space) {
@@ -123,7 +120,7 @@ export class App {
             this.$spaces.forEach(s => {
                 if (s.id == this.state.space) {
                     s.classList.add('is-selected');
-                    scrollToY(s.offsetTop, this.view == '/list/' ? 1500 : 0, 'easeInOutQuint');
+                    scrollToY(s.offsetTop, this.view == '/program/' ? 1500 : 0, 'easeInOutQuint');
                     // s.scrollIntoView({
                     //     behavior: 'smooth'
                     // });
@@ -132,8 +129,23 @@ export class App {
                 }
             })
         }
-        // window.location.hash = '#' + this.state.space;
         history.replaceState({}, '', '#' + this.state.space);
+    }
+    filterBy(value) {
+        this.setState({filter: value});
+        let query = value == 'all' ? window.location.pathname : `?filter=${value}`
+        history.replaceState({}, '', query);
+        
+        this.$spaces.forEach(s => {
+            if (value == 'all') return s.classList.remove('is-hidden');
+
+            if (s.dataset.programTypes.split(',').includes(value)) {
+                s.classList.remove('is-hidden');
+            } else {
+                s.classList.add('is-hidden');
+            }
+        })
+        this.$map.filterBy(value);
     }
     init(data) {
         this.setState();
@@ -163,7 +175,7 @@ export class App {
 
         
         const markerClickHandler = (m, e) => {
-            if (window.location.pathname.includes('/list')) {
+            if (window.location.pathname.includes('/program')) {
                 this.selectSpace(m.options.title);
             } else {
                 this.setView({
