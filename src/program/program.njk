@@ -13,19 +13,19 @@ layout: default
                 {% set programTypes = (programTypes.push(program.data.type), programTypes) %}
                 <div class="program-element" data-type="{{program.data.type}}">
                     <div class="program-element__summary">
-                        {% if program.data.type == 'event' %}
+                        {# {% if program.data.type == 'event' %}
                         <div class="program-element__calendar">
                             <div class="day">SAT</div>
                             <div class="num">25</div>
                             <div class="mon">JUN</div>
                         </div>
-                        {% endif %}
+                        {% endif %} #}
                         <div class="program-element__header">
                             <div class="program-element__event-type">{{program.data.type}}</div>
                             <h2 class="program-element__event-title">{{program.data.title}}</h2>
                         </div>
                     </div>
-                    {# <div class="program-element__event-details text">{{ program.templateContent | safe }}</div> #}
+                    <div class="program-element__event-details text">{{ program.templateContent | safe }}</div>
                 </div>
             {% endfor %}
         {% endset %}
@@ -43,7 +43,7 @@ layout: default
             <br>
             
             <div class="program">
-                {# {{ programBlock | safe }} #}
+                {{ programBlock | safe }}
             </div>
 
             <div class="space__about">
@@ -51,6 +51,11 @@ layout: default
                     {{ location.templateContent | safe }}
                 </p>
             </div>
+            
+
+            <br>
+            
+
 
             <div class="space__event-website">
                 {% if space.data.eventWebsite %}

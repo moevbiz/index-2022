@@ -53,9 +53,9 @@ export class Map {
 
         this.markers.forEach(m => {
             if (value == 'all' || m.options.types.split(',').includes(value)) {
-                return m._icon.classList.remove('is-hidden');
+                return m._icon.classList.remove('is-disabled');
             }
-            m._icon.classList.add('is-hidden');
+            m._icon.classList.add('is-disabled');
         })
     }
 
