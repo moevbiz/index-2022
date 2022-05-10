@@ -17,7 +17,7 @@ module.exports = function(config) {
     })
 
     config.addCollection('events', function(collection) {
-        return collection.getFilteredByGlob("./src/program/*.md").filter(item => item.data.type == 'event');
+        return collection.getFilteredByGlob("./src/events/*.md");
     })
 
     config.addFilter('filterByLocation', function(collection, location) {

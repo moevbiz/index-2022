@@ -1,0 +1,22 @@
+---
+title: Events • Independent Space Index 2022
+layout: default
+---
+
+<div class="spaces-container">
+    <ul class="spaces events">
+    {% for event in collections.events %}
+        <div class="event">
+            <div class="event_heading">
+                <h1 class="event_title">{{event.data.title}}</h1>
+                <div class="event_calendar">
+                    <div class="day">SAT</div>
+                    <div class="num">25</div>
+                    <div class="mon">JUN</div>
+                </div>
+            </div>
+            <p class="event_text"></p>
+        </div>
+    {% endfor %}
+    </ul>
+</div>

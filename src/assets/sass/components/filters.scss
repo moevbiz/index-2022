@@ -8,6 +8,17 @@ nav.filters {
         display: none;
     }
 
+    &::before {
+        position: fixed;
+        top: 0;
+        left: 0;
+        content: "";
+        background: linear-gradient(white 70%, transparent);
+        width: 40vw;
+        height: 80px;
+        z-index: -1;
+    }
+
     ul {
         display: flex;
         gap: .5em;

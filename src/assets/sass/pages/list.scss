@@ -8,12 +8,11 @@
 
 .spaces-container {
     max-width: 100%;
-    border-right: 1px solid white;
 }
 
 .spaces {
-    background-color: rgba(255,255,255,0.5);
-    padding-top: 3.5rem;
+    background-color: rgba(255,255,255,1);
+    // padding-top: 3.5rem;
 
     // &::before {
     //     content: "";
@@ -29,6 +28,8 @@
     .space {
         padding: 1.3rem;
         cursor: pointer;
+        border-bottom: 1px solid;
+
         &:hover {
             background: rgba(255,255,255,0.5);
         }
@@ -44,7 +45,7 @@
         }
 
         h1 {
-            font-size: 1.8rem;
+            font-size: var(--fs-heading);
             @media (min-width: 900px) {
                 & {
                     font-size: 2.5vw;
@@ -62,33 +63,32 @@
                 background: red;
             }
         }
-
-
-        border-top: 1px solid transparent;
-        border-bottom: 1px solid transparent;
         
         &.is-selected {
             
             h1::before {
                 background: black;
             }
-            background: rgba(255,255,255,0.5);
-            border-top: 1px solid white;
-            border-bottom: 1px solid white;
+
+            // background: rgba(255, 222, 222, 0.5);
+            // border-top: 1px solid white;
+            // border-bottom: 1px solid white;
         }
 
         address {
             font-family: monospace;
         }
+        
+        &__about {
+            font-size: .9em;
+            font-family: monospace;
+            text-indent: 2em;
 
-        &__event-title {
-            font-style: italic;
-            margin-bottom: .4rem;
-        }
-
-        &__text-content {
-            max-width: 60ch;
-            font-size: 1.2rem;
+            @media (min-width: 1000px) {
+                & {
+                    column-count: 2;
+                }
+            }
         }
 
         &__event-details {

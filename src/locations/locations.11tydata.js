@@ -2,7 +2,7 @@ module.exports = {
     permalink: false,
     eleventyComputed: {
         slug: function(data) {
-            return this.slug(data.name);
+            return data.id ?? this.slug(data.name);
         },
         apiData: data => data.api.find(e => e.uid == data.id),
         name: data => getProperty('name', data),

@@ -5,6 +5,7 @@ import { LatLng } from 'leaflet';
 const mapOptions = {
     zoomControl: false,
     minZoom: 11,
+    tap: false, // fix a safari bug
     // maxBounds: L.latLngBounds(corner1, corner2),
 }
 

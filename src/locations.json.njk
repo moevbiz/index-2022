@@ -10,7 +10,7 @@ permalink: /locations.json
   {
     "lat": "{{ space.data.lat or space.data.eleventyComputed.lat }}",
     "lng": "{{ space.data.lng or space.data.eleventyComputed.lng }}",
-    "uid": "{{ space.data.name | slug }}",
+    "uid": "{{ space.data.slug }}",
     "name": "{{ space.data.name }}",
     "types": "{{ programTypes }}"
   }{{ '' if loop.last else ',' }}

@@ -1,0 +1,44 @@
+[data-slug="events"] {
+    @media (min-width: $mob) {
+        & {
+            max-width: 40vw;
+        }
+    }
+}
+
+.event {
+
+    &_heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &_title {
+        font-size: var(--fs-heading);
+    }
+
+    &_calendar {
+        border: 1px solid;
+        border-radius: 3px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 50px;
+        margin-right: 1em;
+
+        .day, .mon {
+            background-color: black;
+            color: white;
+            width: 100%;
+            text-align: center;
+            font-size: .8em;
+        }
+
+        .num {
+            font-weight: bold;
+            font-size: 2em;
+        }
+    }
+}

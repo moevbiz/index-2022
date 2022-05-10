@@ -9,11 +9,23 @@ layout: default
 
         {% set programTypes = [] %}
         {% set programBlock %}
-            {% for program in collections.program | filterByLocation(location.data.slug) %}
+            {% for program in collections.program | filterByLocation(location.data.id) %}
                 {% set programTypes = (programTypes.push(program.data.type), programTypes) %}
-                <div class="space__text-content">
-                    <h2 class="space__event-title">{{program.data.title}}</h2>
-                    <div class="space__event-details">{{ program.templateContent | safe }}</div>
+                <div class="program-element" data-type="{{program.data.type}}">
+                    <div class="program-element__summary">
+                        {% if program.data.type == 'event' %}
+                        <div class="program-element__calendar">
+                            <div class="day">SAT</div>
+                            <div class="num">25</div>
+                            <div class="mon">JUN</div>
+                        </div>
+                        {% endif %}
+                        <div class="program-element__header">
+                            <div class="program-element__event-type">{{program.data.type}}</div>
+                            <h2 class="program-element__event-title">{{program.data.title}}</h2>
+                        </div>
+                    </div>
+                    {# <div class="program-element__event-details text">{{ program.templateContent | safe }}</div> #}
                 </div>
             {% endfor %}
         {% endset %}
@@ -29,14 +41,17 @@ layout: default
                 <a href="{{ location.data.website }}" target="_blank">{{ location.data.prettyurl }}</a>
             </address>
             <br>
-
-            {{ programBlock | safe }}
+            
+            <div class="program">
+                {# {{ programBlock | safe }} #}
+            </div>
 
             <div class="space__about">
                 <p class="space__about__text">
                     {{ location.templateContent | safe }}
                 </p>
             </div>
+
             <div class="space__event-website">
                 {% if space.data.eventWebsite %}
                     <a href="{{ space.data.eventWebsite }}" target="_blank">More info {% la 'external-link-alt' %}</a>

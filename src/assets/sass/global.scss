@@ -4,6 +4,11 @@ html {
     background-color: red;
 }
 
+::selection {
+    background-color: red;
+    color: white;
+}
+
 a {
     color: inherit;
     text-decoration: none;
@@ -17,6 +22,15 @@ main {
 
 strong {
     font-weight: bold;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid;
+}
+
+.text {
+    max-width: 55ch;
 }
 
 // @mixin backdrop-blur {

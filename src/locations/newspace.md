@@ -1,4 +1,5 @@
 ---
+id: newspace
 name: New Space
 address: Neue Straße 5
 district: 10

@@ -137,7 +137,25 @@ export class App {
         history.replaceState({}, '', query);
         
         this.$spaces.forEach(s => {
-            if (value == 'all') return s.classList.remove('is-hidden');
+            console.log(s.querySelectorAll('.program-element'));
+
+            let programElements = s.querySelectorAll('.program-element');
+
+            if (value == 'all') {
+                s.classList.remove('is-hidden');
+                programElements.forEach(p => {
+                    p.classList.remove('is-hidden');
+                })
+                return;
+            }
+
+            programElements.forEach(programElement => {
+                if (programElement.dataset.type == value) {
+                    programElement.classList.remove('is-hidden');
+                } else {
+                    programElement.classList.add('is-hidden');
+                }
+            })
 
             if (s.dataset.programTypes.split(',').includes(value)) {
                 s.classList.remove('is-hidden');
