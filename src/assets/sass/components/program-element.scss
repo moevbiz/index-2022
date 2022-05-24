@@ -1,26 +1,29 @@
+.accordion-button {
+    // position: absolute;
+    // left: 0;
+    font-size: 1.5em;
+
+    // transition: transform .1s ease;
+
+    // .is-open & {
+    //     transform: rotate(90deg);
+    // }
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+}
+
 .program {
     // margin-top: 1rem;
     padding: 1em 0;
 
     &-element {
-        margin-bottom: .5em;
-        padding: .5em 2em;
+        margin-bottom: 1em;
         max-width: 50ch;
         // margin-left: 10px;
         margin-top: -1px;
         position: relative;
-        max-height: 200px;
         overflow: hidden;
-
-        // &::after {
-        //     content: "";
-        //     background: linear-gradient(transparent, white);
-        //     height: 20px;
-        //     width: 100%;
-        //     position: absolute;
-        //     bottom: 0;
-        //     left: 0;
-        // }
 
         &.is-hidden {
             display: none;
@@ -86,6 +89,28 @@
 
         &__event-details {
             text-indent: 2em;
+            height: 80px;
+            overflow: hidden;
+            position: relative;
+
+            .is-open & {
+            }
+
+            transition: height .1s ease;
+
+            &::before {
+                .is-open & {
+                    opacity: 0;
+                }
+                transition: opacity .1s ease;
+                content: "";
+                background: linear-gradient(transparent, white);
+                height: 30px;
+                width: 100%;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+            }
         }
     }
 }

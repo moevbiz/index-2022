@@ -5,6 +5,8 @@ import { scrollToY } from '../tools';
 import { NewsletterForm } from "./NewsletterForm";
 import { FilterButtonGroup } from './FilterButtonGroup';
 import { marker } from 'leaflet';
+import { appHeight } from "../tools";
+import { Accordion } from './Accordion';
 
 let swup;
 
@@ -20,8 +22,11 @@ export class App {
         };
         this.$logo = new Logo('#logo');
         this.$filterButtons = new FilterButtonGroup('nav.filters button');
+        this.$accordions = document.querySelectorAll('.accordion');
+        this.$accordions.forEach(acc => new Accordion(acc));
         this.data = '';
         this.getData().then(data => this.init(data));
+        appHeight();
     }
     async getData() {
         let response = await fetch('/locations.json');

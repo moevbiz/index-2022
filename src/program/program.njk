@@ -11,8 +11,8 @@ layout: default
         {% set programBlock %}
             {% for program in collections.program | filterByLocation(location.data.id) %}
                 {% set programTypes = (programTypes.push(program.data.type), programTypes) %}
-                <div class="program-element" data-type="{{program.data.type}}">
-                    <div class="program-element__summary">
+                <div class="program-element accordion" data-type="{{program.data.type}}">
+                    <div class="program-element__summary accordion-summary">
                         {# {% if program.data.type == 'event' %}
                         <div class="program-element__calendar">
                             <div class="day">SAT</div>
@@ -25,7 +25,8 @@ layout: default
                             <h2 class="program-element__event-title">{{program.data.title}}</h2>
                         </div>
                     </div>
-                    <div class="program-element__event-details text">{{ program.templateContent | safe }}</div>
+                    <div class="program-element__event-details text accordion-content">{{ program.templateContent | safe }}</div>
+                    <button class="accordion-button">...</button>
                 </div>
             {% endfor %}
         {% endset %}
@@ -33,11 +34,9 @@ layout: default
         <div class="space" id="{{location.data.slug }}" data-program-types="{{ programTypes }}">
             <h1 class="space__title">{{ location.data.name }}</h1>
             <address class="space__address">
-                <i class="la la-map-marker"></i>
                     {{ location.data.address }}, {{ location.data.district | plz }} Vienna
             </address>
             <address class="space__address">
-                <i class="las la-link"></i> 
                 <a href="{{ location.data.website }}" target="_blank">{{ location.data.prettyurl }}</a>
             </address>
             <br>

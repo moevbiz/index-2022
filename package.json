@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@11ty/eleventy-fetch": "^3.0.0",
+    "include-media": "^1.4.10",
     "leaflet": "^1.7.1",
     "leaflet-active-area": "^1.1.1",
     "line-awesome": "^1.3.0",

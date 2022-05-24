@@ -10,3 +10,8 @@ $mob: 660px;
     --fs-large: 1.2rem;
     --fs-heading: 1.8rem;
 }
+
+@mixin appHeight {
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+}
