@@ -143,8 +143,8 @@
 
 [data-slug="info"] {
     // @include backdrop-blur;
-    background-color: rgba(255,0,0,.6);
-    // mix-blend-mode: color-burn;
+    background-color: rgba(255,0,0,1);
+    mix-blend-mode: lighten;
     color: white;
     padding: 1rem;
     @media (min-width: 800px) {

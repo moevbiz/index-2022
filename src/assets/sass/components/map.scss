@@ -17,7 +17,7 @@
     transition: filter .3s ease;
 
     body.slug-info & {
-        filter: blur(8px);
+        filter: invert(1) blur(2px);
     }
 }
 
