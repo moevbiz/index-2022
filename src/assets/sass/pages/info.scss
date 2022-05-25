@@ -121,6 +121,26 @@
     }
 }
 
+.info-logos {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+
+    a {
+        border-bottom: none!important;
+    }
+
+    .info-logo {
+        height: 50px;
+
+        img {
+            height: 100%;
+        }
+    }
+}
+
 [data-slug="info"] {
     // @include backdrop-blur;
     background-color: rgba(255,0,0,.6);

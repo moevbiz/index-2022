@@ -57,3 +57,25 @@ Get notified when the program is online!
         <a href="https://independentspaceindex.at/imprint">Privacy & Imprint</a>
     </div>
 </div>
+
+<div class="info-logos">
+    {% set logos = [
+    { 
+        name: "BMKOES",
+        image: 'BMKOES_Logo_weiss.png',
+        link: 'https://www.bmkoes.gv.at/'
+    },
+    {
+        name: "Wirtschaftsagentur Wien", 
+        image: 'wa_logo_weiss.png', 
+        link: 'https://wirtschaftsagentur.at'
+    }
+    ] %}
+    {% for logo in logos %}
+    <a href="{{logo.link}}">
+        <div class="info-logo">
+            <img src="/assets/images/logos/{{logo.image}}" alt="{{logo.name}}">
+        </div>
+    </a>
+    {%endfor%}
+</div>
