@@ -1,6 +1,10 @@
 const cacheBuster = require('@mightyplow/eleventy-plugin-cache-buster');
+const markdownIt = require("markdown-it");
 
 module.exports = function(config) {
+    const md = new markdownIt({
+        html: true
+      });
 
     config.addLayoutAlias('default', 'layouts/base.njk');
 
@@ -28,6 +32,10 @@ module.exports = function(config) {
 
     config.addShortcode('la', function(iconName) {
         return `<i class="la la-${iconName}"></i>`
+    });
+
+    config.addPairedShortcode("markdown", (content) => {
+        return md.render(content);
     });
 
     config.addPassthroughCopy('./src/assets/images');

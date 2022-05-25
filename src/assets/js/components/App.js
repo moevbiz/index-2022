@@ -1,6 +1,7 @@
 import { Map } from './Map';
 import { Logo } from './Logo';
 import Swup from 'swup';
+import SwupBodyClassPlugin from '@swup/body-class-plugin';
 import { scrollToY } from '../tools';
 import { NewsletterForm } from "./NewsletterForm";
 import { FilterButtonGroup } from './FilterButtonGroup';
@@ -22,8 +23,6 @@ export class App {
         };
         this.$logo = new Logo('#logo');
         this.$filterButtons = new FilterButtonGroup('nav.filters button');
-        this.$accordions = document.querySelectorAll('.accordion');
-        this.$accordions.forEach(acc => new Accordion(acc));
         this.data = '';
         this.getData().then(data => this.init(data));
         appHeight();
@@ -43,7 +42,9 @@ export class App {
         this.setState({
             useActiveArea: window.location.pathname.includes('/program'),
             view: window.location.pathname,
+            logoHidden: this.$logo.$el.classList.contains('is-hidden'),
         })
+        
         this.$spaces = document.querySelectorAll('.space');
         if (this.$spaces) {
             this.$spaces.forEach(s => {
@@ -52,6 +53,12 @@ export class App {
                 })
             })
         }
+
+        this.$accordions = document.querySelectorAll('.accordion');
+        if (this.$accordions) {
+            this.$accordions.forEach(acc => new Accordion(acc));
+        }
+
         if (window.location.pathname.includes('/program') && this.state.space) {
             this.selectSpace(this.state.space);
         }
@@ -174,7 +181,9 @@ export class App {
         this.setState();
         this.$map = new Map('map', data);
         this.$menuElements = document.querySelectorAll('nav .menu-link');
-        swup = new Swup();
+        swup = new Swup({
+            plugins: [new SwupBodyClassPlugin()],
+        });
         swup.on('contentReplaced', () => {
             this.afterLoad();
         });

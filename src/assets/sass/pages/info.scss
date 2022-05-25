@@ -1,11 +1,14 @@
 .signup-form-container {
     // padding: 1.5rem;
     z-index: 100000;
+    display: inline-block;
+    width: 100%;
+    max-width: 800px;
 
     form {
         // width: 400px;
-        max-width: 100%;
-        margin: 1.5rem;
+        width: 100%;
+        margin-top: 1.5rem;
 
         .inputs {
             width: 100%;
@@ -18,7 +21,7 @@
     }
 
     input, button {
-        border: .08em solid;
+        border: 2px solid;
         border-radius: 5rem;
         padding: .5rem 1rem;
         // font-size: 1.3rem;
@@ -27,8 +30,9 @@
     }
 
     input {
-        // width: 100%;
+        width: 100%;
         margin-right: -2px;
+        box-sizing: border-box;
     }
 
     button {
@@ -39,14 +43,93 @@
     }
 }
 
+.info-header {
+    @media (min-width: $mob) {
+        flex-direction: row;
+        gap: 3rem;
+    }
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: space-between;
+    margin-bottom: 5rem;
+    &_logo {
+        width: 100%;
+        // max-width: 600px;
+        position: relative
+    }
+    &_date {
+        width: 100%;
+        // max-width: 600px;
+        position: relative;
+        img {
+            @media (min-width: $mob) {
+                position: absolute;
+            }
+            width: 95%;
+            height: auto;
+            position: relative;
+            top: 43%;
+            right: 0;
+        }
+    }
+}
+
+@media (min-width: $mob) {
+    .info-header_date img {
+        position: relative;
+    }
+}
+    
+.info-texts {
+    display: flex;
+    flex-direction: column;
+    @media (min-width: $mob) {
+        flex-direction: row;
+        gap: 3rem;
+    }
+
+    .info-text {
+        margin-bottom: 2rem;
+    }
+
+    .lang-icon {
+        text-transform: uppercase;
+        margin: 0 auto;
+        border: 2px solid;
+        border-radius: 50%;
+        width: 2em;
+        height: 2em;
+        display: flex;
+        margin: 0 auto;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        margin-bottom: 1em;
+        margin-top: 1em;
+    }
+}
+
+.info-info {
+    .info-link {
+        margin-bottom: 1em;
+        span {
+            display: block;
+            font-family: monospace;
+            font-size: 1rem;
+        }
+    }
+}
+
 [data-slug="info"] {
     // @include backdrop-blur;
-    background-color: rgba(255,255,255,0.5);
+    background-color: rgba(255,0,0,.6);
+    // mix-blend-mode: color-burn;
+    color: white;
     padding: 1rem;
-    font-size: 1.8rem;
     @media (min-width: 800px) {
         & {
-            font-size: 3vw;
+            font-size: 2.5vw;
         }
         // a, input, button {
         //     border: .25vw solid;
@@ -66,16 +149,9 @@
 
     a {
         // margin: 1.5rem;
-        border: .08em solid;
-        border-radius: 5rem;
-        padding: .5rem 1rem;
         // font-size: 1.3rem;
-        color: $black;
-        word-break: break-all;
-        text-transform: uppercase;
-        // font-family: monospace;
-        box-decoration-break: clone;
         line-height: 1.85em;
+        border-bottom: 2px dotted;
 
         &:hover {
             color: red;

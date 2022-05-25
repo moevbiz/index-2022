@@ -13,6 +13,12 @@
     top: 0;
     left: 0;
     background-color: rgb(247,196,195);
+
+    transition: filter .3s ease;
+
+    body.slug-info & {
+        filter: blur(8px);
+    }
 }
 
 .marker-icon {

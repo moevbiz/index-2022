@@ -10,7 +10,7 @@
     <title>{{title}}</title>
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
-<body>
+<body class="p-prelaunch">
 
     <div id="logo">
         <figure>
@@ -18,16 +18,17 @@
         </figure>
     </div>
 
-    <div id="info">
+    <div id="info" class="text">
+    {{ content | safe }}
         <a href="https://www.instagram.com/independentspaceindex/">Instagram</a> •
         <a href="http://eepurl.com/gy2xV1">Subscribe to newsletter</a> •
         <a href="assets/documents/independentspaceindex.ics">export calendar event (.ics)</a> •
         <a href="https://independentspaceindex.at">More info</a>
     </div>
 
-    {# <main id="swup" class="transition-slide" data-slug="{{ page.fileSlug }}">
-        {{ content | safe }}
-    </main> #}
+    <main>
+    </main>
+
     
 </body>
 <script src="/assets/js/scripts.js"></script>

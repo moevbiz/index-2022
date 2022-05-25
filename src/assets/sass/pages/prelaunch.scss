@@ -1,0 +1,37 @@
+.p-prelaunch {
+    #info {
+        margin-left: 50%;
+        position: relative;
+        bottom: 0;
+        text-align: left;
+        font-family: sans-serif;
+        color: white;
+        width: 100%;
+        padding: 2rem;
+        font-size: 1.2rem;
+        line-height: 1.2em;
+    
+        a {
+            border-bottom: 1px dotted;
+        }
+
+        p {
+            margin-bottom: 1em;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1em;
+            line-height: 1.1em;
+            font-weight: bold;
+            margin-top: 2rem;
+        }
+    }
+
+    #logo {
+        position: fixed;
+        left: 0;
+        width: 50%;
+        height: 100vh;
+    }
+}

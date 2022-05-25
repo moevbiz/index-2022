@@ -10,11 +10,14 @@
     <title>{{title}}</title>
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
-<body>
+<body class="slug-{{ page.fileSlug }}">
+    {# only show navigation when site is live or in dev branch #}
+    {%if (site.prelaunch == false) or (site.env == 'dev') %}
     {% include 'partials/_navigation.njk' %}
+    {%endif%}
     {# {% include 'partials/_filters.njk' %} #}
 
-    <div id="logo">
+    <div id="logo" class="{% if logoHidden %}is-hidden{%endif%}">
         <figure>
             <img src="/assets/images/schriftzug_weiss.png" alt="Independent Space Index 2022" srcset="">
         </figure>
