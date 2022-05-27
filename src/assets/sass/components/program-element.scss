@@ -89,11 +89,12 @@
 
         &__event-details {
             text-indent: 2em;
-            height: 80px;
+            max-height: 80px;
             overflow: hidden;
             position: relative;
 
             .is-open & {
+                max-height: unset;
             }
 
             transition: height .1s ease;

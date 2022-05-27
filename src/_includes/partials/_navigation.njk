@@ -1,36 +1,26 @@
+{% set elements = [
+    {name: 'map', icon: 'map', href: '/'}, 
+    {name: 'program', icon: 'list', href: '/program/'}, 
+    {name: 'events', icon: 'calendar', href: '/events/'}, 
+    {name: 'info', icon: 'info', href: '/info/'}
+] %}
+
 <nav class="main-nav">
     <ul>
-        <a href="/" class="menu-link" data-view="/">
+        {% for element in elements %}
+        <a href="{{element.href}}" class="menu-link" data-view="{{element.href}}">
             <li>
-                <div class="button">
-                    <i class="la la-map"></i>
+                <div class="mobile">
+                    <div class="button">
+                        <i class="la la-{{element.icon}}"></i>
+                    </div>
+                    <span>{{element.name | capitalize}}</span>
                 </div>
-                <span>Map</span>
+                <div class="desktop">
+                    <img src="/assets/images/nav-{{element.name}}.png" alt="">
+                </div>
             </li>
         </a>
-        <a href="/program/" class="menu-link" data-view="/program/">
-            <li>
-                <div class="button">
-                    <i class="la la-list"></i>
-                </div>
-                <span>Program</span>
-            </li>
-        </a>
-        <a href="/events" class="menu-link" data-view="/events/">
-            <li>
-                <div class="button">
-                    <i class="la la-calendar"></i>
-                </div>
-                <span>Events</span>
-            </li>
-        </a>
-        <a href="/info/" class="menu-link" data-view="/info/">
-            <li>
-                <div class="button">
-                    <i class="la la-info"></i>
-                </div>
-                <span>Info</span>
-            </li>
-        </a>
+        {%endfor%}
     </ul>
 </nav>

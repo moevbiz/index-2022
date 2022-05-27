@@ -17,7 +17,8 @@ export class App {
             space: window.location.pathname.includes('/program') ? window.location.hash.substr(1) : '',
             panelOpen: false,
             logoHidden: false,
-            useActiveArea: window.location.pathname.includes('/program'),
+            useActiveArea: 
+                window.location.pathname.includes('/program') || window.location.pathname.includes('/events'),
             view: window.location.pathname ? window.location.pathname : 'index',
             filter: 'all',
         };
@@ -40,7 +41,7 @@ export class App {
     }
     afterLoad() {
         this.setState({
-            useActiveArea: window.location.pathname.includes('/program'),
+            useActiveArea: window.location.pathname.includes('/program') || window.location.pathname.includes('/events'),
             view: window.location.pathname,
             logoHidden: this.$logo.$el.classList.contains('is-hidden'),
         })

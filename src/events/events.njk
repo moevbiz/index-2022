@@ -6,16 +6,22 @@ layout: default
 <div class="spaces-container">
     <ul class="spaces events">
     {% for event in collections.events %}
-        <div class="event">
+    {% set location = collections.locations |getCollectionItemBySlug(event.data.location) %}
+        <div class="space event" id="{{location.data.slug }}">
             <div class="event_heading">
                 <h1 class="event_title">{{event.data.title}}</h1>
                 <div class="event_calendar">
-                    <div class="day">SAT</div>
-                    <div class="num">25</div>
-                    <div class="mon">JUN</div>
+                    <div class="day">{{event.data.start | date('ccc')}}</div>
+                    <div class="num">{{event.data.start | date('dd')}}</div>
+                    {# <div class="mon">{{event.data.start | date('MMM')}}</div> #}
                 </div>
             </div>
-            <p class="event_text"></p>
+            <p class="event_text">
+                {{event.templateContent | safe}}
+            </p>
+            <div class="event-space">
+                {{location.data.name}}
+            </div>
         </div>
     {% endfor %}
     </ul>

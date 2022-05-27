@@ -1,5 +1,6 @@
 const cacheBuster = require('@mightyplow/eleventy-plugin-cache-buster');
 const markdownIt = require("markdown-it");
+const { DateTime } = require("luxon");
 
 module.exports = function(config) {
     const md = new markdownIt({
@@ -32,6 +33,16 @@ module.exports = function(config) {
         if (!location) return;
         const filtered = collection.filter(item => item.data.location == location)
         return filtered;
+    });
+
+    config.addFilter('getCollectionItemBySlug', function(collection, slug) {
+        const filtered = collection.filter(item => item.data.id == slug);
+        return filtered[0];
+    })
+
+
+    config.addFilter("date", (date, format) => {
+        return DateTime.fromJSDate(date).toFormat(format);
     });
 
     config.addShortcode('la', function(iconName) {

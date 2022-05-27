@@ -1,8 +1,17 @@
 nav.main-nav {
     position: fixed;
-    top: .5rem;
-    right: .5rem;
+    top: 0;
+    right: 0;
     z-index: 10000;
+    width: 100%;
+
+    transition: width .2s ease;
+    
+    @include media('>tablet') {
+        .slug-program &, .slug-events &, .slug-info & {
+            width: 60%;
+        }
+    }
 
     ul {
         display: flex;
@@ -13,13 +22,15 @@ nav.main-nav {
             .button {
                 background: $red;
             }
+            .desktop {
+                filter: brightness(0);
+            }
         }
 
         li {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-left: .5rem;
             .button {
                 font-size: 2rem;
                 color: white;
@@ -38,40 +49,37 @@ nav.main-nav {
             }
         }
 
+        .mobile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .desktop {
+            display: none;
+        }
+
         @include media('>tablet') {
-            .is-active-element {
-                li {
-                    background: $red;
-                }
+
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 1.3em;
+
+            .mobile {
+                display: none;
             }
 
-            li {
-                flex-direction: row;
-                color: white;
-                background: $black;
-                border-radius: 100px;
-                height: 2.5rem;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                padding: 0 1em;
+            .desktop {
+                display: block;
 
-                .button {
-                    background: transparent;
-                    font-size: 1.5rem;
-                    color: white;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    border-radius: 50%;
-                    margin-bottom: 0;
-                    height: auto;
-                    width: auto;
-                    margin-right: .3em;
+                .slug-info & {
+                    filter: brightness(0) invert(1);
                 }
-                span {
-                    font-size: 1rem;
-                    // text-transform: uppercase;
+
+                img {
+                    height: 5vw;
+                    max-height: 2rem;
                 }
             }
         }

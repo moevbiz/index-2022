@@ -12,8 +12,9 @@ export class Accordion {
 
         this.isOpen = false;
 
-        if (this.expandedHeight <= this.collapsedHeight) {
+        if (this.expandedHeight <= 80) {
             this.$button.style.display = 'none';
+            this.open();
         }
 
         this.$button.addEventListener('click', e => {

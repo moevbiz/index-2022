@@ -4,6 +4,13 @@ layout: default
 ---
 
 <div class="spaces-container">
+    {# <div class="intro">
+        <h1>Program</h1>
+        <p class="text">
+            All participating spaces have ongoing exhibitions and
+            are open on Saturday and Sunday, June 25+26, from 12:00 - 19:00.
+        </p>
+    </div> #}
     <ul class="spaces">
     {% for location in collections.locations %}
 
@@ -22,7 +29,7 @@ layout: default
                         {% endif %} #}
                         <div class="program-element__header">
                             <div class="program-element__event-type">{{program.data.type}}</div>
-                            <h2 class="program-element__event-title">{{program.data.title}}</h2>
+                            <h2 class="program-element__event-title">{{program.data.title | nl2br | safe}}</h2>
                         </div>
                     </div>
                     <div class="program-element__event-details text accordion-content">{{ program.templateContent | safe }}</div>
@@ -50,12 +57,7 @@ layout: default
                     {{ location.templateContent | safe }}
                 </p>
             </div>
-            
-
             <br>
-            
-
-
             <div class="space__event-website">
                 {% if space.data.eventWebsite %}
                     <a href="{{ space.data.eventWebsite }}" target="_blank">More info {% la 'external-link-alt' %}</a>
