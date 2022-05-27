@@ -24,8 +24,12 @@ module.exports = function(config) {
         return collection.getFilteredByGlob("./src/events/*.md");
     })
 
+    config.addCollection('programAndEvents', function(collection) {
+        return collection.getFilteredByGlob(["./src/events/*.md", "./src/program/*.md"]);
+    })
+
     config.addFilter('filterByLocation', function(collection, location) {
-        if (!location) return collection;
+        if (!location) return;
         const filtered = collection.filter(item => item.data.location == location)
         return filtered;
     });

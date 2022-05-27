@@ -9,7 +9,7 @@ layout: default
 
         {% set programTypes = [] %}
         {% set programBlock %}
-            {% for program in collections.program | filterByLocation(location.data.id) %}
+            {% for program in collections.programAndEvents | filterByLocation(location.data.id) %}
                 {% set programTypes = (programTypes.push(program.data.type), programTypes) %}
                 <div class="program-element accordion" data-type="{{program.data.type}}">
                     <div class="program-element__summary accordion-summary">
