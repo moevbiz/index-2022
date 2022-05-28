@@ -3,79 +3,74 @@ title: "Info • Independent Space Index 2022"
 layout: default
 logoHidden: true
 ---
-<div class="info-header">
-    <div class="info-header_logo">
-        <img src="/assets/images/schriftzug_weiss.png" alt="Independent Space Index">
-    </div>
-    <div class="info-header_date">
-        <img src="/assets/images/date.png" alt="June 24-26">
-    </div>
-</div>
 
-Get notified when the program is online!
-<br>
-{%include 'partials/_newsletter.njk'%}
+<div class="spaces-container">
 
-<div class="info-texts">
-    {% set langs = ['en','de'] %}
-    {% for lang in langs %}
-    <div class="info-text info-text-{{ lang }}">
-        <div class="lang-icon">
-            {{ lang }}
+    Get notified when the program is online!
+    <br>
+    {%include 'partials/_newsletter.njk'%}
+
+    <div class="info-texts">
+        {% set langs = ['en','de'] %}
+        {% for lang in langs %}
+        <div class="info-text info-text-{{ lang }}">
+            <div class="lang-icon">
+                {{ lang }}
+            </div>
+            <div class="text">
+                {% markdown %}
+                {%- include './_info.' + lang + '.njk' -%}
+                {% endmarkdown %}
+            </div>
         </div>
-        <div class="text">
-            {% markdown %}
-            {%- include './_info.' + lang + '.njk' -%}
-            {% endmarkdown %}
+        {%endfor%}
+    </div>
+
+    <div class="info-info">
+        <div class="info-link">
+            <span>Mail</span>
+            <a href="mailto:contact@independentspaceindex.at">contact@independentspaceindex.at</a>
+        </div>
+        <div class="info-link">
+            <span>Instagram</span>
+            <a href="https://www.instagram.com/independentspaceindex/">@independentspaceindex</a>
+        </div>
+        {# <div class="info-link">
+            <span>Newsletter</span>
+            {%include 'partials/_newsletter.njk'%}
+        </div> #}
+        <div class="info-link">
+            <span>Save the date</span>
+            <a href="assets/documents/independentspaceindex.ics">export calendar event (.ics)</a>
+        </div>
+        <div class="info-link">
+            <span>More Info</span>
+            <a href="https://independentspaceindex.at">Independent Space Index</a>
+        </div>
+        <div class="info-link">
+            <a href="https://independentspaceindex.at/imprint">Privacy & Imprint</a>
         </div>
     </div>
-    {%endfor%}
-</div>
 
-<div class="info-info">
-    <div class="info-link">
-        <span>Mail</span>
-        <a href="mailto:contact@independentspaceindex.at">contact@independentspaceindex.at</a>
+    <div class="info-logos">
+        {% set logos = [
+        { 
+            name: "BMKOES",
+            image: 'BMKOES_Logo_weiss.png',
+            link: 'https://www.bmkoes.gv.at/'
+        },
+        {
+            name: "Wirtschaftsagentur Wien", 
+            image: 'wa_logo_weiss.png', 
+            link: 'https://wirtschaftsagentur.at'
+        }
+        ] %}
+        {% for logo in logos %}
+        <a href="{{logo.link}}">
+            <div class="info-logo">
+                <img src="/assets/images/logos/{{logo.image}}" alt="{{logo.name}}">
+            </div>
+        </a>
+        {%endfor%}
     </div>
-    <div class="info-link">
-        <span>Instagram</span>
-        <a href="https://www.instagram.com/independentspaceindex/">@independentspaceindex</a>
-    </div>
-    {# <div class="info-link">
-        <span>Newsletter</span>
-        {%include 'partials/_newsletter.njk'%}
-    </div> #}
-    <div class="info-link">
-        <span>Save the date</span>
-        <a href="assets/documents/independentspaceindex.ics">export calendar event (.ics)</a>
-    </div>
-    <div class="info-link">
-        <span>More Info</span>
-        <a href="https://independentspaceindex.at">Independent Space Index</a>
-    </div>
-    <div class="info-link">
-        <a href="https://independentspaceindex.at/imprint">Privacy & Imprint</a>
-    </div>
-</div>
-
-<div class="info-logos">
-    {% set logos = [
-    { 
-        name: "BMKOES",
-        image: 'BMKOES_Logo_weiss.png',
-        link: 'https://www.bmkoes.gv.at/'
-    },
-    {
-        name: "Wirtschaftsagentur Wien", 
-        image: 'wa_logo_weiss.png', 
-        link: 'https://wirtschaftsagentur.at'
-    }
-    ] %}
-    {% for logo in logos %}
-    <a href="{{logo.link}}">
-        <div class="info-logo">
-            <img src="/assets/images/logos/{{logo.image}}" alt="{{logo.name}}">
-        </div>
-    </a>
-    {%endfor%}
 </div>

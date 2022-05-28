@@ -1,3 +1,14 @@
+[data-slug="info"] {
+    @media (min-width: $mob) {
+        & {
+            max-width: 40vw;
+        }
+    }
+    .spaces-container {
+        padding: 1.3rem;
+    }
+}
+
 .signup-form-container {
     // padding: 1.5rem;
     z-index: 100000;
@@ -44,23 +55,26 @@
 }
 
 .info-header {
-    @media (min-width: $mob) {
-        flex-direction: row;
-        gap: 3rem;
+    display: none;
+    .slug-info & {
+        display: flex;
     }
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    justify-content: space-between;
-    margin-bottom: 5rem;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 60%;
+    height: 100vh;
+
     &_logo {
         width: 100%;
-        max-width: calc(40vw - 1.3rem);
+        max-width: calc(40vw - 2.6rem);
         position: relative
     }
     &_date {
         width: 100%;
-        max-width: calc(40vw - 1.3rem);
+        max-width: calc(40vw - 2.6rem);
         // max-width: 600px;
         position: relative;
         img {
@@ -74,6 +88,11 @@
             right: 0;
         }
     }
+    &_darts {
+        width: 80%;
+        max-height: 100vh;
+        filter: drop-shadow(0 0 5vw red);
+    }
 }
 
 @media (min-width: $mob) {
@@ -83,12 +102,6 @@
 }
     
 .info-texts {
-    display: flex;
-    flex-direction: column;
-    @media (min-width: $mob) {
-        flex-direction: row;
-        gap: 3rem;
-    }
 
     .info-text {
         margin-bottom: 2rem;
@@ -128,6 +141,7 @@
     align-items: center;
     gap: 2rem;
     flex-wrap: wrap;
+    filter: invert(1);
 
     a {
         border-bottom: none!important;
@@ -144,13 +158,14 @@
 
 [data-slug="info"] {
     // @include backdrop-blur;
-    background-color: rgba(255,0,0,1);
-    mix-blend-mode: lighten;
-    color: white;
-    padding: 1rem;
+    // background-color: rgba(255,0,0,1);
+    // background-color: rgba(255,255,255,.3);
+    // mix-blend-mode: lighten;
+    color: black;
+    // padding: 1rem;
     @media (min-width: 800px) {
         & {
-            font-size: 2.5vw;
+            font-size: 1.5rem;
         }
         // a, input, button {
         //     border: .25vw solid;
