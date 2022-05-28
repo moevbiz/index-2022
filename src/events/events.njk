@@ -19,8 +19,15 @@ layout: default
             <p class="event_text">
                 {{event.templateContent | safe}}
             </p>
-            <div class="event-space">
-                {{location.data.name}}
+            <br>
+            <div class="event_space">
+                <h1 class="space__title">{{ location.data.name }}</h1>
+                <address class="space__address">
+                        {{ location.data.address }}, {{ location.data.district | plz }} Vienna
+                </address>
+                <address class="space__address">
+                    <a href="{{ location.data.website }}" target="_blank">{{ location.data.prettyurl }}</a>
+                </address>
             </div>
         </div>
     {% endfor %}

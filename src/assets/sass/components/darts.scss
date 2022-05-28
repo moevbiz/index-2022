@@ -1,0 +1,19 @@
+.darts-container {
+    display: none;
+    .slug-info & {
+        display: flex;
+    }
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 60%;
+    height: 100vh;
+}
+
+.darts {
+    width: 80%;
+    max-height: 100vh;
+    filter: drop-shadow(0 0 5vw red);
+}
