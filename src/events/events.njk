@@ -9,16 +9,20 @@ layout: default
     {% set location = collections.locations |getCollectionItemBySlug(event.data.location) %}
         <div class="space event" id="{{location.data.slug }}">
             <div class="event_heading">
-                <h1 class="event_title">{{event.data.title}}</h1>
                 <div class="event_calendar">
                     <div class="day">{{event.data.start | date('ccc')}}</div>
                     <div class="num">{{event.data.start | date('dd')}}</div>
                     {# <div class="mon">{{event.data.start | date('MMM')}}</div> #}
                 </div>
+                <div class="event_time">
+                    <div class="time">15:00 - 19:00</div>
+                    <h1 class="event_title">{{event.data.title}}</h1>
+                </div>
             </div>
-            <p class="event_text">
+            <br>
+            <div class="event_text">
                 {{event.templateContent | safe}}
-            </p>
+            </div>
             <br>
             <div class="event_space">
                 <h1 class="space__title">{{ location.data.name }}</h1>

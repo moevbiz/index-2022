@@ -10,12 +10,6 @@
         {% for element in elements %}
         <a href="{{element.href}}" class="menu-link" data-view="{{element.href}}">
             <li>
-                <div class="mobile">
-                    <div class="button">
-                        <i class="la la-{{element.icon}}"></i>
-                    </div>
-                    <span>{{element.name | capitalize}}</span>
-                </div>
                 <div class="desktop">
                     <img src="/assets/images/nav-{{element.name}}.png" alt="">
                 </div>

@@ -61,8 +61,11 @@
 
     &_logo {
         width: 100%;
-        max-width: calc(40vw - 2.6rem);
-        position: relative
+        @media (min-width: $mob) {
+            max-width: calc(40vw - 2.6rem);
+        }
+        position: relative;
+        margin-bottom: 2rem;
     }
     &_date {
         width: 100%;
