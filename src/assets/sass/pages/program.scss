@@ -10,6 +10,10 @@
     max-width: 100%;
     box-shadow: 0 0 10px 0 rgba(255,200,200,1);
     background-color: rgba(255,255,255,1);
+    padding-bottom: 5rem!important;
+    @include media('>tablet') {
+        padding-bottom: 0;
+    }
 }
 
 .intro {
