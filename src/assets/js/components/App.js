@@ -8,6 +8,7 @@ import { FilterButtonGroup } from './FilterButtonGroup';
 import { marker } from 'leaflet';
 import { appHeight } from "../tools";
 import { Accordion } from './Accordion';
+import { ShowOnMapButton } from './ShowOnMapButton';
 
 let swup;
 
@@ -60,6 +61,11 @@ export class App {
             this.$accordions.forEach(acc => new Accordion(acc));
         }
 
+        this.$showOnMapButtons = document.querySelectorAll('.show-on-map');
+        if (this.$showOnMapButtons) {
+            this.$showOnMapButtons.forEach(b => new ShowOnMapButton(b));
+        }
+
         if (window.location.pathname.includes('/program') && this.state.space) {
             this.selectSpace(this.state.space);
         }
@@ -84,7 +90,7 @@ export class App {
                 // this.selectSpace(options.space);
                 st = {};
             } else {
-                swup.loadPage({
+                this.swup.loadPage({
                     url: `/program/${hash}`, // route of request (defaults to current url)
                 });
                 st = {useActiveArea: true, space: options.space};
@@ -182,10 +188,10 @@ export class App {
         this.setState();
         this.$map = new Map('map', data);
         this.$menuElements = document.querySelectorAll('nav .menu-link');
-        swup = new Swup({
+        this.swup = new Swup({
             plugins: [new SwupBodyClassPlugin()],
         });
-        swup.on('contentReplaced', () => {
+        this.swup.on('contentReplaced', () => {
             this.afterLoad();
         });
 

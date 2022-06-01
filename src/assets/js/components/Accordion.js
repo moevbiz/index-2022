@@ -7,8 +7,6 @@ export class Accordion {
         this.$content = element.querySelector('.accordion-content');
         this.collapsedHeight = this.$content.offsetHeight;
         this.expandedHeight = this.$content.scrollHeight;
-        console.log(this.collapsedHeight);
-        console.log(this.expandedHeight);
 
         this.isOpen = false;
 

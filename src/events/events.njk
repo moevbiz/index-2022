@@ -32,6 +32,10 @@ layout: default
                 <address class="space__address">
                     <a href="{{ location.data.website }}" target="_blank">{{ location.data.prettyurl }}</a>
                 </address>
+                <div class="space-buttons">
+                    <button class="show-on-map" data-id="{{ location.data.slug }}">Show on map</button>
+                    <button class="directions">Get directions</button>
+                </div>
             </div>
         </div>
     {% endfor %}

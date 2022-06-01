@@ -10,11 +10,37 @@
     max-width: 100%;
     box-shadow: 0 0 10px 0 rgba(255,200,200,1);
     background-color: rgba(255,255,255,1);
-    padding-bottom: 5rem!important;
+    padding-bottom: 5rem;
     @include media('>tablet') {
         padding-bottom: 0;
     }
 }
+
+.space-buttons {
+    margin-left: 36px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+
+    .btn {
+        border-radius: 300px;
+        // background-color: black;
+        font-family: monospace;
+        // color: white;
+        border: 1px solid;
+        padding: .2rem .5rem;
+        margin-top: 1rem;
+        cursor: pointer;
+    }
+
+    @media (min-width: $mob) {
+        display: none;
+    }
+
+    .show-on-map {
+    }
+}
+
 
 .intro {
     padding: 1.3rem;
@@ -54,7 +80,7 @@
             display: none;
         }
 
-        a {
+        a:not(.btn) {
             color: inherit;
             text-decoration: none;
             border-bottom: 1px dashed;
