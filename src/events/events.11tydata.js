@@ -4,8 +4,9 @@ module.exports = {
         //     return data.id ?? this.slug(data.name);
         // },
         type: 'event',
-        datestring: function(data) {
-            return data.start;
-        }
+        // datestring: function(data) {
+        //     console.log(date(data.start, 'H:mm'));
+        //     return data.start;
+        // },
     }
 }

@@ -68,13 +68,15 @@ export class App {
 
         if (window.location.pathname.includes('/program') && this.state.space) {
             this.selectSpace(this.state.space);
+        } else {
+            this.unselectSpace();
         }
 
         if (document.querySelector('.signup-form')) {
             new NewsletterForm('.signup-form');
         }
 
-        if (window.location.pathname.includes('info')) {
+        if (!window.location.pathname.includes('program') || !this.state.space) {
             window.scrollTo(0,0);
         }
 

@@ -22,7 +22,11 @@ module.exports = function(config) {
     })
 
     config.addCollection('events', function(collection) {
-        return collection.getFilteredByGlob("./src/events/*.md");
+        return collection.getFilteredByGlob("./src/events/*.md").sort((a,b) => {
+            if (a.data.start > b.data.start) return 1;
+            else if (a.data.start < b.data.start) return -1;
+            else return 0;
+        })
     })
 
     config.addCollection('programAndEvents', function(collection) {
@@ -42,7 +46,12 @@ module.exports = function(config) {
 
 
     config.addFilter("date", (date, format) => {
-        return DateTime.fromJSDate(date).toFormat(format);
+        let isodate = new Date(date).toISOString();
+        let returnDate = DateTime
+        .fromISO(isodate, { zone: 'utc'})
+        .toFormat(format);
+
+        return returnDate;
     });
 
     config.addShortcode('la', function(iconName) {

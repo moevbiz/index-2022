@@ -28,7 +28,12 @@ layout: default
                         </div>
                         {% endif %} #}
                         <div class="program-element__header">
-                            <div class="program-element__event-type">{{program.data.type}}</div>
+                            <div class="program-element__event-type">
+                                {{program.data.type}}
+                                {%if program.data.type == 'event'%}
+                                – {{program.data.start | date('cccc, MMMM d, H:mm')}}
+                                {%endif%}
+                            </div>
                             <h2 class="program-element__event-title">{{program.data.title | nl2br | safe}}</h2>
                         </div>
                     </div>

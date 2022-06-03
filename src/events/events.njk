@@ -15,7 +15,12 @@ layout: default
                     {# <div class="mon">{{event.data.start | date('MMM')}}</div> #}
                 </div>
                 <div class="event_time">
-                    <div class="time">15:00 - 19:00</div>
+                    <div class="time">
+                        {{event.data.start | date('H:mm')}}
+                        {%if event.data.end %}
+                         - {{event.data.end | date('H:mm')}}
+                        {%endif%}
+                    </div>
                     <h1 class="event_title">{{event.data.title}}</h1>
                 </div>
             </div>
