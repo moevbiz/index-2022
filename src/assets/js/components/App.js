@@ -19,7 +19,9 @@ export class App {
             panelOpen: false,
             logoHidden: false,
             useActiveArea: 
-                window.location.pathname.includes('/program') || window.location.pathname.includes('/events'),
+                window.location.pathname.includes('/program') || 
+                window.location.pathname.includes('/events') ||
+                window.location.pathname.includes('/info'),
             view: window.location.pathname ? window.location.pathname : 'index',
             filter: 'all',
         };
