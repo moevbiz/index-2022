@@ -38,8 +38,8 @@ layout: default
                     <a href="{{ location.data.website }}" target="_blank">{{ location.data.prettyurl }}</a>
                 </address>
                 <div class="space-buttons">
-                    <button class="show-on-map" data-id="{{ location.data.slug }}">Show on map</button>
-                    <button class="directions">Get directions</button>
+                    <button class="show-on-map btn" data-id="{{ location.data.slug }}">Show on map</button>
+                    <a target="_blank" href="https://www.google.com/maps/dir/?api=1&destination={{ location.data.lat }},{{ location.data.lng }}" class="btn directions">Get directions</a>
                 </div>
             </div>
         </div>
