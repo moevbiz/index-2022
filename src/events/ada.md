@@ -1,7 +1,7 @@
 ---
 location: ada
 title: Opening with ada film screening & concerts
-start: 2022-24-06 19:00:00
+start: 2022-06-24 19:00:00
 ---
 
 Wien Premiere :

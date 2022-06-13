@@ -1,5 +1,5 @@
 ---
-location: medienwerkstatt
+location: medienwerkstatt-wien
 title: DER WALD
 ---
 
