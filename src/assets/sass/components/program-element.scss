@@ -105,7 +105,7 @@
                 }
                 transition: opacity .1s ease;
                 content: "";
-                background: linear-gradient(transparent, white);
+                background: linear-gradient(rgba(255,255,255,1) 70%, rgba(255,255,255,0));
                 height: 30px;
                 width: 100%;
                 position: absolute;
