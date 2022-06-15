@@ -1,4 +1,4 @@
 ---
 location: salon-fuer-kunstbuch
-title: TBA
+title: Salon für Kunstbuch
 ---
