@@ -3,9 +3,13 @@ const markdownIt = require("markdown-it");
 const { DateTime } = require("luxon");
 
 module.exports = function(config) {
-    const md = new markdownIt({
-        html: true
-      });
+    const markdownoptions = {
+        html: true,
+        linkify: true,
+    }
+    const md = new markdownIt(markdownoptions);
+
+    config.setLibrary("md", markdownIt(markdownoptions));
 
     config.addLayoutAlias('default', 'layouts/base.njk');
 
