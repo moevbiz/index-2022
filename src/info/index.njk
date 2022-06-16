@@ -18,10 +18,6 @@ logoHidden: true
         </div> #}
     </div>  
 
-    Get notified when the program is online!
-    <br>
-    {%include 'partials/_newsletter.njk'%}
-
     <div class="info-texts">
         {% set langs = ['en','de'] %}
         {% for lang in langs %}
@@ -63,6 +59,10 @@ logoHidden: true
             <a href="https://independentspaceindex.at/imprint">Privacy & Imprint</a>
         </div>
     </div>
+
+    Sign up to our newsletter!
+    <br>
+    {%include 'partials/_newsletter.njk'%}
 
     <div class="info-logos">
         {% set logos = [
