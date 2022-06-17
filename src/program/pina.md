@@ -4,8 +4,4 @@ title: Drawings
 type: exhibition
 ---
 
-Pina is hosting a group exhibition of drawings by Viennese artists.
-
-The exhibition is a continuation of a multi-part exhibition series on social spaces and the relationships between "off-space" and institution.
-
-During the opening night and in the course of the summer, the show will be expanded by spontaneous sketches, doodles and graphics on paper.
+with Brishty Alam, Minda Andrén, Minda Andrén, Karolin Brägger, Connor Crawford, Marina Faust, Julian Göthe, François-Xavier Guiberteau, Thor Tao Hansen, Marlene Kager, Irina Lotarevich, Miriam Esther Meyer, Ute Müller, Ivan Pérard, Francis Ruyter, Constanze Schweiger, Titania Seidl, Georg Thanner, Inga Charlotte Thiele, Johanna Trede, Marianne Vlaschits, Dan Vogt, Aleksandar Vučenović
