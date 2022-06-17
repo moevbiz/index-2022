@@ -48,9 +48,11 @@ layout: default
             <address class="space__address">
                     {{ location.data.address }}, {{ location.data.district | plz }} Vienna
             </address>
+            {% if location.data.website != 'none' %}
             <address class="space__address">
                 <a href="{{ location.data.website }}" target="_blank">{{ location.data.prettyurl }}</a>
             </address>
+            {%endif%}
             <div class="space-buttons">
                 <button class="btn show-on-map" data-id="{{ location.data.slug }}">Show on map</button>
                 <a target="_blank" href="https://www.google.com/maps/dir/?api=1&destination={{ location.data.lat }},{{ location.data.lng }}" class="btn directions">Get directions</a>
