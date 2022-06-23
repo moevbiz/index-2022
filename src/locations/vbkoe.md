@@ -1,4 +1,4 @@
 ---
 id: vbkoe
 ---
-The Austrian Association of Women Artists (VBKÖ) was founded in 1910 and began renting its historical premises shortly thereafter in Vienna’s first district, where it can be found today. The association belonged to the early movements of women artists, being a pioneer historically: it lobbied for women artists, for the improvement of their artistic, economic and educational conditions, and to increase their representation, organizing international collaborations.
+The VBKÖ is a 112-year-old association for wom*n artists. Today it exists as a space  that fosters contemporary feminist artistic agendas, offers a space for experiments and promotes political and activist work to establish a new and vital connection between historical debates and contemporary queer, feminist art production. 

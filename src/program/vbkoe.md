@@ -5,4 +5,5 @@ title: |
     Ernst Lima / Christiane Peschek
     Curated by The DODO Project
 ---
-11. June – 1. July 2022
+https://www.vbkoe.org/2022/06/04/oh-hooman-where-art-thou/
+https://www.instagram.com/vbkoe_/
