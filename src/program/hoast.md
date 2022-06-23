@@ -6,4 +6,6 @@ GalerijaGallery presents Made in China - an art project that promotes consumptio
 
 Made in China are / is Viktor Bernik, Vasja Cenčič, Marko Damiš, Žiga Kariž and Jara Vogrič
 
+https://www.hoast.net/hoast/may-june-26-24-2022-made-in-china-washing-and-drinking/
+
 https://www.galerijagallery.com/dogodek/waschen-und-trinken/
